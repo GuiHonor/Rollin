@@ -1,0 +1,14 @@
+Rollin é uma ideia de projeto. Uma mistura de rede social somada com eventos agendados.
+Nele será possível realizar cadastro/login, onde na pagina principal terá uma barra de pesquisa para a pessoa digitar onde ele deseja ir.
+
+EXEMPLO: Hoje a noite pretendo ir em alguma festa com um estilo mais voltado para rock e eu estou na Praia Grande. Então irei pesquisar a palavra chave rock, e todos os eventos de rock que irão acontecer hoje na cidade, aparecerão na tela através do maps com points inseridos onde está acontecendo os eventos. Após clicar no evento escolhido, aparecerá na tela as informações especificas do evento, tal como: Criador do evento, seja comercial ou não. Horário, estilo musical, atrações, etc, assim como um evento do facebook, por exemplo.
+
+O FOCO DO APP É TOTALMENTE VOLTADO PARA ISSO. A parte de rede social, será de forma secundária. Haverá a opção de abertura de chats, interagir com pessoas do mesmo evento que você, etc. Também será possível a publicação de fotos/vídeos em cada evento, através dos usuários, ou do próprio criador do evento. Facilitando encontrar aquela pessoa que você conheceu em uma festa, esqueceu de trocar contatos e nunca mais a viu.
+
+A parte rentável se dará com propagandas. Pelo foco do app ser +18 poderá realizar propagandas de bebidas alcoolicas por exemplo. Tanto das marcas em si, como comércios locais (comerciantes poderão pagar para terem seus anúncios à amostra para pessoas que estejam procurando eventos nas proximidades. Anúncios de bares/adegas por exemplo.).
+
+
+
+
+Rolês frequentados - Criar um backend que contabiliza o tempo de permanência de uma pessoa em uma determinada festa para que seja possível contabilizar as festas frequentadas.
+Depois de alguns minutos de permanência no local, será enviado um popup para avaliar a festa fazendo com que aquela festa ganhe mais destaque. irá conter botões como "não estou mais no local", e avaliações
