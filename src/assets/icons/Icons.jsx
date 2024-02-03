@@ -1,10 +1,12 @@
+import "./Style.css"
+
 export const Config = ({fillColor}) => {
     return (
         <svg 
             xmlns="http://www.w3.org/2000/svg"  
             viewBox="0 0 50 50" 
-            width="50px" 
-            height="50px"
+            width="30px" 
+            height="30px"
             fill={fillColor}
         >    
         <path d="M47.16,21.221l-5.91-0.966c-0.346-1.186-0.819-2.326-1.411-3.405l3.45-4.917c0.279-0.397,0.231-0.938-0.112-1.282 
@@ -27,8 +29,8 @@ export const Events = ({fillColor}) => {
         <svg 
             version="1.0" 
             xmlns="http://www.w3.org/2000/svg"
-            width="64.000000pt" 
-            height="64.000000pt" 
+            width="32.000000pt" 
+            height="32.000000pt" 
             viewBox="0 0 64.000000 64.000000"
             preserveAspectRatio="xMidYMid meet"
         >
@@ -84,8 +86,8 @@ export const Facebook = ({fillColor}) => {
         <svg 
             xmlns="http://www.w3.org/2000/svg"  
             viewBox="0 0 50 50" 
-            width="50px" 
-            height="50px"
+            width="30px" 
+            height="30px"
             fill={fillColor}
         >    
         <path d="M25,2C12.318,2,2,12.317,2,25s10.318,23,23,23c12.683,0,23-10.317,23-23S37.683,2,25,2z 
@@ -104,7 +106,7 @@ export const Feed = ({fillColor}) => {
             height="30.000000pt" 
             viewBox="0 0 30.000000 30.000000"
             preserveAspectRatio="xMidYMid meet"
-            
+                       
         >
 
         <g transform="translate(0.000000,30.000000) scale(0.100000,-0.100000)"
@@ -124,10 +126,14 @@ export const Gallery = ({fillColor}) => {
         <svg 
             version="1.0" 
             xmlns="http://www.w3.org/2000/svg"
-            width="48.000000pt" height="48.000000pt" 
-            viewBox="0 0 48.000000 48.000000"
+            width="30.000000pt" height="30.000000pt" 
+            viewBox="0 0 56 56"
             preserveAspectRatio="xMidYMid meet"
-            
+            style={{
+                marginBottom:'-5px', 
+                marginTop:'-2px', 
+                marginRight: '-6px'
+            }}
         >
         <g transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)"
          fill={fillColor} stroke="none">
@@ -148,11 +154,12 @@ export const Gallery = ({fillColor}) => {
 export const Myaccount = ({fillColor}) => {
     return (
         <svg 
-            height="48" 
+            height="35" 
             viewBox="0 0 48 48" 
-            width="48" 
+            width="35" 
             xmlns="http://www.w3.org/2000/svg"
             fill={fillColor}
+            
         >
         <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 6c3.31 
         0 6 2.69 6 6 0 3.32-2.69 6-6 6s-6-2.68-6-6c0-3.31 2.69-6 6-6zm0 28.4c-5.01 0-9.41-2.56-12-6.44.05-3.97 
@@ -207,10 +214,14 @@ export const Social = ({fillColor}) => {
         <svg 
             version="1.0" 
             xmlns="http://www.w3.org/2000/svg"
-            width="26.000000pt" 
-            height="26.000000pt" 
+            width="22.000000pt" 
+            height="22.000000pt" 
             viewBox="0 0 26.000000 26.000000"
             preserveAspectRatio="xMidYMid meet"
+            style={{
+                marginBottom:'2px',
+                marginRight:'4px'
+            }}
             
         >
 
@@ -224,5 +235,124 @@ export const Social = ({fillColor}) => {
         27 19 59 -3 79 -24 22 -45 21 -65 -1z"/>
         </g>
         </svg>
+    )
+}
+
+export const ArrowDown = ({fillColor, onClick}) => {
+    return (
+        <svg 
+            width="20" 
+            viewBox="0 0 30 16" 
+            fill=""
+            xmlns="http://www.w3.org/2000/svg"
+            onClick={onClick} 
+        >
+        <path d="M14.8034 6.54232L10.0755 
+        3.21507C4.67222 -0.605103 1.63287 -0.974798 0.113195 
+        1.85953C-0.562216 3.21507 1.80173 5.6797 6.86731 9.49988L14.8034 
+        15.1685L22.4018 9.74634C26.6231 6.78878 30.0002 3.58477 30.0002 
+        2.72215C30.0002 -0.605104 24.7657 -0.481874 19.7001 3.09184L14.8034 
+        6.54232Z" fill={fillColor}/>
+        </svg>
+    )
+}
+
+
+export const ArrowUp = ({fillColor, onClick}) => {
+    return (
+        <svg 
+            width="20" 
+            viewBox="0 0 30 16" 
+            fill="" 
+            xmlns="http://www.w3.org/2000/svg"
+            onClick={onClick}
+        >
+        <path d="M15.1966 8.62614L19.9245 11.9534C25.3278 
+        15.7736 28.3671 16.1433 29.8868 13.3089C30.5622 11.9534 
+        28.1983 9.48876 23.1327 5.66858L15.1966 -6.49153e-05L7.59822 
+        5.42212C3.3769 8.37967 -0.000160655 11.5837 -0.000160655 
+        12.4463C-0.000160655 15.7736 5.23428 15.6503 10.2999 
+        12.0766L15.1966 8.62614Z" fill={fillColor}/>
+        </svg>
+    )
+}
+
+export const Edit = ({fillColor, onClick, className}) => {
+    return (
+        <svg className={className}version="1.0" xmlns="http://www.w3.org/2000/svg"
+        width="30.000000pt" height="30.000000pt" viewBox="0 0 500.000000 500.000000"
+        preserveAspectRatio="xMidYMid meet" onClick={onClick}>
+
+        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+        fill={fillColor} stroke="none">
+        <path d="M2315 5109 c-597 -61 -1141 -318 -1563 -739 -1002 -1000 -1002 -2620
+        0 -3620 407 -405 900 -647 1493 -732 119 -17 512 -16 635 1 579 80 1088 330
+        1488 731 464 465 724 1062 749 1720 26 711 -242 1393 -749 1900 -393 394 -891
+        643 -1453 726 -122 18 -477 26 -600 13z m1378 -1074 c124 -32 245 -123 300
+        -223 32 -58 57 -158 57 -227 0 -68 -25 -168 -57 -229 -20 -38 -206 -231 -732
+        -758 -388 -389 -720 -715 -738 -723 -28 -14 -74 -15 -302 -13 -379 4 -361 -15
+        -361 371 0 211 3 265 15 291 23 48 1409 1427 1470 1462 101 58 238 78 348 49z
+        m-1133 -175 l0 -140 -532 0 c-511 0 -534 -1 -565 -20 -67 -40 -63 31 -63
+        -1140 0 -1171 -4 -1100 63 -1140 31 -19 58 -20 1095 -20 1174 0 1102 -4 1142
+        63 19 31 20 54 20 565 l0 532 140 0 141 0 -3 -567 -3 -568 -32 -66 c-42 -86
+        -116 -159 -201 -201 l-67 -33 -1135 0 -1135 0 -66 32 c-84 41 -161 118 -202
+        202 l-32 66 0 1135 0 1135 32 66 c52 105 134 179 244 219 51 18 84 19 607 20
+        l552 0 0 -140z"/>
+        <path d="M3505 3756 c-16 -8 -66 -50 -110 -95 l-80 -81 133 -132 132 -133 81
+        80 c45 44 87 94 95 112 17 38 18 101 3 140 -14 38 -67 92 -106 109 -41 18
+        -109 17 -148 0z"/>
+        <path d="M2627 2892 l-487 -487 0 -133 0 -132 133 0 132 0 490 490 490 490
+        -130 130 c-71 71 -132 130 -135 130 -3 0 -224 -219 -493 -488z"/>
+        </g>
+        </svg>
+
+    )
+}
+
+export const ExitIcon = ({fillColor, onClick, className}) => {
+    return (
+        <svg 
+            width="20" 
+            height="20" 
+            viewBox="0 0 20 20" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            onClick={onClick}
+            className= {className}
+        >
+            <path d="M18.7344 16.6406L16.6367 18.7344C16.2539 19.1211 15.6289 
+            19.1211 15.2422 18.7344L10 13.4961L4.76172 18.7344C4.375 19.1211 
+            3.74609 19.1211 3.36328 18.7344L1.26563 16.6406C0.878906 16.2539 
+            0.878906 15.6289 1.26563 15.2422L6.50391 10L1.26563 4.76172C0.882813 
+            4.37109 0.882813 3.74219 1.26563 3.36328L3.36328 1.26563C3.74609 0.878906 
+            4.375 0.878906 4.76172 1.26563L10 6.50781L15.2422 1.26563C15.6289 0.878906 
+            16.2578 0.878906 16.6367 1.26563L18.7344 3.35938C19.1211 3.74609 19.1211 
+            4.375 18.7383 4.76172L13.4961 10L18.7344 15.2422C19.1211 15.6289 19.1211 
+            16.2539 18.7344 16.6406Z" fill={fillColor}/>
+        </svg>
+
+    )
+}
+
+export const SendIcon = ({fillColor, onClick, className}) => {
+    return (
+        <svg 
+            width="19" 
+            height="18" 
+            viewBox="0 0 23 22" 
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            onClick={onClick}
+            className={className}
+        >
+            <path d="M10.8889 4.00207L0 8.00207L2.44444 10.5576C5.66667 14.0021 
+            6.11111 13.891 11.6667 9.55763L16.2222 6.00207L12.6667 10.5576C10.6667 
+            13.1132 9 15.6687 9 16.2243C9 16.7799 10.2222 18.4465 11.7778 
+            19.891C13.3333 21.3354 14.5556 22.2243 14.5556 21.891C14.5556 21.5576 
+            16.3333 16.4465 18.4444 10.5576C20.5556 4.66874 22.2222 -0.109039 22 
+            0.00207138C21.8889 0.00207138 16.8889 1.77985 10.8889 4.00207Z" 
+            fill={fillColor}/>
+        </svg>
+
     )
 }

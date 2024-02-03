@@ -1,9 +1,12 @@
+import "./app.css"
+import MainPerfil from "./pages/MainPerfil/MainPerfil";
+
 function App() {
   return (
-    <div className="App">
-      teste gui
-    </div>
-  );
+    <>
+      <MainPerfil/>
+    </>
+  )
 }
 
 export default App;

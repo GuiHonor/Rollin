@@ -1,0 +1,78 @@
+.Main {
+    align-self: center;
+    margin-top: 60px;
+    width: 800px;
+    
+}
+
+.MainContent {
+    display: flex; 
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.PostImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.Name {
+    color: white;
+    font-size: 18px;
+    position: relative;
+    top: 20px;
+    left: 10px;
+}
+
+.ReadMore {
+    color: white; 
+    font-size: 13px; 
+    position: relative; 
+    left: 2px;
+    top: 15px;
+    background-color: #FF31F7;
+    border: none;
+    border-radius: 80px;
+    width: 90px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    align-items: center;
+    height: 30px;
+    
+}
+
+.ReadMore:hover{
+    box-shadow: 0px 0px 25px 0px #FF31F7;
+}
+
+.DescriptionStyle {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display:-webkit-box;
+    color: white;
+    position: relative;
+    font-size: 13px;
+    margin-bottom: 10px;
+    line-height: 20px;
+    
+}
+
+.DescriptionNull {
+    color: white;
+    font-size: 13px;
+    position: relative;
+    margin-bottom: 10px;
+    left: 2.5px;
+    line-height: 20px;
+}
+
+.PhotoPost {
+    width: 800px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
