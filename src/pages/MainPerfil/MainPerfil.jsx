@@ -7,10 +7,10 @@ import {
     Gallery,
     Social} from "../../assets/icons/Icons"
 import gui from "../../assets/img/gui.png"
-import Chat from "../../components/Chat/Chat";
-import FeedSpace from "../../components/FeedSpace/FeedSpace";
-import HorizontalBar from "../../components/HorizontalBar/HorizontalBar"
-import VerticalBar from "../../components/VerticalBar/VerticalBar";
+import Chat from "../../components/chat/Chat";
+import FeedSpace from "../../components/feed-space/FeedSpace";
+import HorizontalBar from "../../components/horizontal-bar/HorizontalBar"
+import VerticalBar from "../../components/vertical-bar/VerticalBar";
 
 
 function MainPerfil() {
@@ -30,7 +30,7 @@ function MainPerfil() {
 
     const VerticalMenu = [
         {
-            icon: <Myaccount /> ,
+            icon: <Myaccount height={35} width={35}/> ,
             name: 'Minha Conta',
             href: '#'
     
@@ -55,7 +55,7 @@ function MainPerfil() {
                 
                     <HorizontalBar
                         src={gui}                        
-                        homeicon={<Homeicon />}
+                        homeicon={<Homeicon width={45} height= {45}/>}
                         HorizontalMenu={HorizontalMenu}
                     />
                     <div style={{display:'flex'}}>

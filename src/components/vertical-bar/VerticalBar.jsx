@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { Config } from "../../assets/icons/Icons"
 import "./VerticalStyle.css"
+import PinkButton from "../pink-button/PinkButton"
 
 
 const VerticalBar = ({VerticalMenu}) => {
@@ -38,9 +39,12 @@ const VerticalBar = ({VerticalMenu}) => {
                     <h1>Configurações</h1>
                 </a>
        
-            <motion.button
-            whileTap={{scale: 0.9}}
-            >Anunciar<br></br>Festa</motion.button>
+            <PinkButton
+                name={`Anunciar Festa`}
+                width={180}
+                fontSize={17}
+                borderRadius={45}
+            />
 
         </div>
         

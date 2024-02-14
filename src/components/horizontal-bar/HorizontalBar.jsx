@@ -1,7 +1,5 @@
-import { useState } from "react"
 import "./HorizontalStyle.css"
 import {motion} from "framer-motion"
-import { Edit } from "../../assets/icons/Icons"
 
 const HorizontalBar = ({href,homeicon,src, HorizontalMenu}) => {
 

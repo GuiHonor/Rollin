@@ -57,6 +57,7 @@
     line-height: 1.2;
     color: white;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .verticalDiv button:hover{

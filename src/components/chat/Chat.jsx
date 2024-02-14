@@ -4,10 +4,22 @@ import gui from '../../assets/img/gui.png'
 import princesa from '../../assets/img/princesa.jpg'
 import bilu from '../../assets/img/bilu.jpg'
 import veia from '../../assets/img/veia.jpg'
-import { useState, useEffect } from "react"
-import { motion} from "framer-motion"
+import {  useState, useEffect } from "react"
+import { motion, } from "framer-motion"
+import { useForm } from "react-hook-form"
+import io from "socket.io-client"
+
 
 const Chat = () => {
+
+        const [showCurrentChatName, setShowCurrentChatName] = useState([])
+        const [openChat, setOpenChat] = useState(true)
+        const [openConversation, setOpenConversation] = useState(false)
+        const [senderMessage, setSenderMessage] = useState([])
+        const [receiverMessage, setReceiverMessage] = useState([])
+        const [passSocket, setPassSocket] = useState()
+        const { register, handleSubmit, reset } = useForm()
+        
 
     const [rolliners, setRolliners] = useState([
         {
@@ -31,17 +43,40 @@ const Chat = () => {
             id: 4,
         },            
     ]) 
-    const [showCurrentChatName, setShowCurrentChatName] = useState([])
-    const [openChat, setOpenChat] = useState(true)
-    const [openConversation, setOpenConversation] = useState(false)
 
-    const moveToTop = (person) => {
+    const moveToTop = async (person) => {
         const updatedList = [...rolliners.filter((p) => p.id !== person.id)]
         setRolliners([person, ...updatedList])
         setShowCurrentChatName(person)
+        const socket = await io.connect('http://localhost:3001')
+        socket &&
+        setPassSocket(socket)
     }
 
+  
 
+    const handleSendMessage = async (data) => {
+        if(!data.message.trim()) return
+        passSocket.emit('setUserName', showCurrentChatName.name)
+        passSocket.emit('message', data.message)
+        reset()
+
+    }
+    
+
+    useEffect(() => {
+        
+        if (passSocket) {
+        passSocket.on('receiveMessage', data => {
+            setSenderMessage((current) => [data, ...current])
+        })
+        
+        return () => passSocket.off('receiveMessage')
+        }   
+        
+    },[passSocket])
+    
+    console.log(senderMessage)
 
     if (openChat === true){
 
@@ -90,7 +125,7 @@ const Chat = () => {
             </div>
 
                     {openConversation &&
-                        <div>
+                        <form onSubmit={handleSubmit(handleSendMessage)} autoComplete="off"> 
 
                             <motion.div 
                                 className="BackgroundConversation" 
@@ -116,40 +151,52 @@ const Chat = () => {
                                         
                                     }}
                                 >
+                                    
+                                        <header className="HeaderConversation">
 
-                                    <header className="HeaderConversation">
+                                            <div className="InfoRolliner">
+                                                <img src={showCurrentChatName.src}></img> 
+                                                <h3>{showCurrentChatName.name}</h3>
+                                            </div>
 
-                                        <div className="InfoRolliner">
-                                            <img src={showCurrentChatName.src}></img> 
-                                            <h3>{showCurrentChatName.name}</h3>
+                                            <ExitIcon 
+                                                className={'ExitIcon'} 
+                                                onClick={() => setOpenConversation(!openConversation)} 
+                                                />
+
+                                        </header>
+
+                                        <div className="Conversation">
+                                            {senderMessage.map((item) => 
+                                                <div className="Sender">{item.message}</div>
+                                            )}
+
+                                            {receiverMessage.map((item) => 
+                                                <div className="Receiver">{item.message}</div>
+                                            )}
                                         </div>
-
-                                        <ExitIcon 
-                                            className={'ExitIcon'} 
-                                            onClick={() => setOpenConversation(!openConversation)} 
-                                            />
-
-                                    </header>
-
-                                    <div className="Conversation">
-
-                                    </div>
-
-                                    <div className="TextAreaMain">
-
-                                        <textarea 
-                                            className="TextAreaConversation" 
-                                            placeholder="Digite uma mensagem de texto aqui."
+                                                
+                                    <div className="TextArea">
+                                        
+                                        <input 
+                                                type="text"
+                                                className="TextConversation" 
+                                                placeholder="Digite uma mensagem de texto aqui."
+                                                {...register('message')}
                                         />
-                                        <div className="SendContainer"> 
+                                        
+                                        <motion.button
+                                            className="SendContainer" 
+                                            whileTap={{scale: 0.9, boxShadow: 0}}
+                                        > 
                                             <SendIcon className={'SendIcon'}/> 
-                                        </div>
+                                        </motion.button>
 
                                     </div>
 
                                 </motion.div>  
 
-                        </div>
+                        </form>
                     } 
 
         </motion.div>

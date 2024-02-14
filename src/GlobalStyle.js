@@ -6,8 +6,6 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         font-family: 'Poppins', sans-serif;
         padding: 0;
-        font-weight: bold;
-        
     }
 
     body {
@@ -15,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     ::-webkit-scrollbar {
-    width: 0px;
+        width: 0px;
     }
 
 `
