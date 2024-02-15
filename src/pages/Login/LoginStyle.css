@@ -1,7 +1,23 @@
+.NewAccount {
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.700);
+    width: 220px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.NewAccount::placeholder{
+    color: white;
+    font-weight: bold;
+}
+
 .InputText {
     text-decoration: none;
     border: 1px solid rgba(255, 255, 255, 0.700);
-    margin-top: 50px;
     width: 450px;
     padding: 10px;
     border-radius: 10px;
@@ -14,6 +30,7 @@
     color: white;
     font-weight: bold;
 }
+
 
 .LoginButton {
     width: 200px;

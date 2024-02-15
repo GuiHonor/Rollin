@@ -102,7 +102,6 @@
     width: 1000px;
     height: 730px;
     background-color: #161616;
-    box-shadow: 0px 0px 15px 0px #111111;
     color: white;
     top: 15%;
     left: 23%;
@@ -125,9 +124,7 @@
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     padding: 20px;
-    
     justify-content: space-between;
-    
 }
 
 .HeaderConversation img {

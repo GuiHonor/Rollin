@@ -12,8 +12,7 @@ import FeedSpace from "../../components/feed-space/FeedSpace";
 import HorizontalBar from "../../components/horizontal-bar/HorizontalBar"
 import VerticalBar from "../../components/vertical-bar/VerticalBar";
 
-
-function MainPerfil() {
+function Profile() {
 
     const HorizontalMenu = [
         {
@@ -68,4 +67,4 @@ function MainPerfil() {
     )
 }
 
-export default MainPerfil
+export default Profile

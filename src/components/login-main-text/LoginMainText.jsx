@@ -1,12 +1,13 @@
 import {motion} from "framer-motion"
 
-const LoginMainText = ({title, subtitle, call}) => {
+const LoginMainText = ({title, subtitle, call, onClick}) => {
     return (
         <>
             <div className="MainText" style={{
                     color: 'white',
                     fontSize: '18px',
-                    lineHeight: '35px'
+                    lineHeight: '35px',
+                    marginBottom: '50px'
             }}> 
                 <h1>{title}</h1>
                 <div style={{display: 'flex'}}>
@@ -19,6 +20,7 @@ const LoginMainText = ({title, subtitle, call}) => {
                             color: '#ff31f8ce', 
                             transition:{duration: 0.1}
                         }}
+                        onClick={onClick}
                         >
                             {call}
                     </motion.h5>

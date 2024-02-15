@@ -5,7 +5,7 @@ const HorizontalBar = ({href,homeicon,src, HorizontalMenu}) => {
 
     return (
         
-        <div className="divMain">
+        <motion.div className="divMain">
 
             <motion.img 
                 whileHover={{backgroundColor: '#fafafaac'}} 
@@ -58,7 +58,7 @@ const HorizontalBar = ({href,homeicon,src, HorizontalMenu}) => {
             
 
                       
-        </div>
+        </motion.div>
 
     )
 }

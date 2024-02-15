@@ -8,6 +8,7 @@ import bento from "../../assets/img/photofeed.png"
 import mundoanimal from "../../assets/img/testemundoanimal.jpg"
 import testeleao from "../../assets/img/leaoanimal.jpg"
 import teste from "../../assets/img/mundoanimal.png"
+import { motion } from 'framer-motion'
 
 const FeedSpace = () => {
 
@@ -39,7 +40,7 @@ const FeedSpace = () => {
     ]
 
     return (
-        <div className="FeedSpace">
+        <motion.div className="FeedSpace">
             
                {
                 posts.length && posts.map(post => (
@@ -49,7 +50,7 @@ const FeedSpace = () => {
                 ))
                }
                
-        </div>
+        </motion.div>
         
     )
 }

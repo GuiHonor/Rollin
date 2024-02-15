@@ -8,7 +8,7 @@ const VerticalBar = ({VerticalMenu}) => {
 
     return (
 
-        <div className="verticalDiv">
+        <motion.div className="verticalDiv">
             
             {VerticalMenu.map(item =>
                 <motion.div 
@@ -46,7 +46,7 @@ const VerticalBar = ({VerticalMenu}) => {
                 borderRadius={45}
             />
 
-        </div>
+        </motion.div>
         
     )
 }

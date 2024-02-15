@@ -75,8 +75,6 @@ const Chat = () => {
         }   
         
     },[passSocket])
-    
-    console.log(senderMessage)
 
     if (openChat === true){
 

@@ -1,12 +1,14 @@
 import "./app.css"
 import Login from "./pages/Login/Login";
-import MainPerfil from "./pages/MainPerfil/MainPerfil";
+import Profile from "./pages/Profile/Profile";
+import { Route, Routes } from "react-router-dom"
 
 function App() {
   return (
-    <>
-      <MainPerfil/>
-    </>
+    <Routes>
+      <Route path= "/" element = { <Login/> }/>
+      <Route path= "/profile" element = { <Profile/> } /> 
+    </Routes>
   )
 }
 

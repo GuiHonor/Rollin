@@ -1,8 +1,5 @@
 import {motion} from 'framer-motion'
 import { FacebookIcon, GoogleIcon } from "../../assets/icons/Icons"
-import { useState } from 'react'
-
-
 
 const textStyle = {
     marginLeft: '20px',
@@ -16,7 +13,6 @@ const LoginWithGoogle = () => {
         border: '1px solid rgba(255, 255, 255, 0.700)',
         borderRadius: '30px',
         width: '300px',
-        display: 'flex',
         alignItems: 'center',
         padding: '10px',
         paddingLeft: '35px',
