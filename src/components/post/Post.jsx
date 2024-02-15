@@ -2,33 +2,30 @@ import "./PostStyle.css"
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 
-const Post = ({style, name, photoPerfil, description, photoPost}) => {
+const Post = ({ name, photoPerfil, description, photoPost}) => {
 
     const descriptionRef = useRef(null)
-    const [isOpen, setIsOpen] = useState(true)
-    const [lines, setLines] = useState(0)
-
-    const handleResizeDescription = () => {
-        const descriptionHeight = descriptionRef.current.offsetHeight
-        const descriptionLineHeight = parseInt(window.getComputedStyle(descriptionRef.current).lineHeight)
-        setLines(descriptionHeight/descriptionLineHeight)
-    } 
-
-    
-    useEffect(() => {
-        handleResizeDescription()
-    }, [])
+    const [isOpen, setIsOpen] = useState(false)
+    const [showReadMore, setShowReadMore] = useState(false)
 
     useEffect(() => {
-        window.addEventListener('resize', handleResizeDescription)
-    
-        return () => window.removeEventListener('resize', handleResizeDescription)
-    }, [])
+
+        if (descriptionRef.current) {
+            setShowReadMore(
+                descriptionRef.current.scrollHeight !== descriptionRef.current.clientHeight
+            )
+        }
+    },[])
 
     return (
     <>
-        <div className="Main" style={style} >
-
+        <div className="Main">
+            <div style={{
+                border: '1px solid rgba(255,255,255, 0.10)',
+                borderTopRightRadius: '20px',
+                borderTopLeftRadius: '20px',
+                padding: '15px',
+            }}>
             <div className="MainContent" >
                 
                 <div style={{display: 'flex'}}>
@@ -40,7 +37,7 @@ const Post = ({style, name, photoPerfil, description, photoPost}) => {
                     <h1 className="Name">{name}</h1>
                 </div>
 
-                { lines > 3 && (
+                { showReadMore && (
                     
                     <motion.button
                         onClick={() => setIsOpen(!isOpen)}
@@ -50,7 +47,7 @@ const Post = ({style, name, photoPerfil, description, photoPost}) => {
                         }}
                     >
 
-                        {isOpen? 'Ver mais' : 'Ver menos'}
+                        {isOpen? 'Ver menos' : 'Ver mais'}
 
                     </motion.button>
                 
@@ -61,10 +58,11 @@ const Post = ({style, name, photoPerfil, description, photoPost}) => {
             <div 
             style={{
                 wordBreak: 'break-all',
+                
             }}
             >
 
-                <p  className= {isOpen? 'DescriptionStyle':'DescriptionNull'}
+                <p  className= {isOpen? 'DescriptionNull' : 'DescriptionStyle'}
                     ref={descriptionRef}
                 >
                     {description}
@@ -72,11 +70,13 @@ const Post = ({style, name, photoPerfil, description, photoPost}) => {
 
                 
             </div>
+            </div>
             <img 
                 className="PhotoPost"
                 src={photoPost} 
                 alt="Post"
             />
+            
         </div>
         
     </>

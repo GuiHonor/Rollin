@@ -6,8 +6,21 @@ import { motion } from "framer-motion"
 import PinkButton from '../../components/pink-button/PinkButton'
 import LoginWithGoogle from '../../components/login-with-google/LoginWithGoogle'
 import HeaderLogin from '../../components/header-login/HeaderLogin'
+import { useForm } from 'react-hook-form'
 
 const Login = () => {
+    
+    const { register, handleSubmit, reset } = useForm()
+
+    const handleLogin = (data) => {
+        console.log(data)
+
+
+        reset()
+    }
+
+    const acess = {email: 'teste@gmail.com', password: 'teste123'}
+
     return (
         <>
             <GlobalStyle/>
@@ -34,7 +47,15 @@ const Login = () => {
                 
                 <div className="MainContent" style={{padding: '200px 400px', alignItems: 'center' }}>
 
-                    <form style={{display: 'flex', flexDirection: 'column', marginTop: '-50px'}}>   
+                    <form 
+                        style={{
+                            display: 'flex', 
+                            flexDirection: 'column', 
+                            marginTop: '-50px'
+                            }}
+                        onSubmit={handleSubmit(handleLogin)}
+                        autoComplete='off'
+                    >   
 
                         <LoginMainText 
                             title={'Bem Vindo!'}
@@ -44,7 +65,9 @@ const Login = () => {
                         <input 
                             className="InputText" 
                             type="email" 
-                            placeholder="Email" 
+                            placeholder="Email"
+                            {...register('email')}
+                            required 
                         />  
 
                         <input 
@@ -53,7 +76,10 @@ const Login = () => {
                             placeholder="Senha"
                             style={{
                                 marginTop: '20px'
-                            }} 
+                            }}
+                            {...register('password')}
+                            minLength={8}
+                            required
                         />
                             <div style={{alignSelf: 'center', marginTop: '20px'}}>
                                 <PinkButton

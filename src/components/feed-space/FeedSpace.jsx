@@ -40,6 +40,7 @@ const FeedSpace = () => {
 
     return (
         <div className="FeedSpace">
+            
                {
                 posts.length && posts.map(post => (
                     <Post 
@@ -47,6 +48,7 @@ const FeedSpace = () => {
                     />     
                 ))
                }
+               
         </div>
         
     )

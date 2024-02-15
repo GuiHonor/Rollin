@@ -5,7 +5,7 @@ import MainPerfil from "./pages/MainPerfil/MainPerfil";
 function App() {
   return (
     <>
-      <Login/>
+      <MainPerfil/>
     </>
   )
 }
