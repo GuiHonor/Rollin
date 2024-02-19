@@ -8,10 +8,11 @@ import {  useState, useEffect } from "react"
 import { motion, } from "framer-motion"
 import { useForm } from "react-hook-form"
 import io from "socket.io-client"
+import useProfileContext from "../../hooks/useProfileContext"
 
 
 const Chat = () => {
-
+        const {dataProfile} = useProfileContext()
         const [showCurrentChatName, setShowCurrentChatName] = useState([])
         const [openChat, setOpenChat] = useState(true)
         const [openConversation, setOpenConversation] = useState(false)
@@ -51,6 +52,7 @@ const Chat = () => {
         const socket = await io.connect('http://localhost:3001')
         socket &&
         setPassSocket(socket)
+        console.log(dataProfile)
     }
 
   

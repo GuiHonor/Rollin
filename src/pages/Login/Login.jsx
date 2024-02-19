@@ -9,10 +9,11 @@ import HeaderLogin from '../../components/header-login/HeaderLogin'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import NewAccount from '../../components/new-account/NewAccount'
+import useProfileContext from '../../hooks/useProfileContext'
 const _ = require ('lodash')
 
 const Login = () => {
-    
+    const {dataProfile} = useProfileContext()
     const { register, handleSubmit, reset } = useForm()
     const [createAccount, setCreateAccount] = useState(false)
 
@@ -44,7 +45,7 @@ const Login = () => {
         reset()
     }
 
-
+    console.log(dataProfile)
 
     return (
         <>

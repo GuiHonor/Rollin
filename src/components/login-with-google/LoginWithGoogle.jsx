@@ -1,12 +1,21 @@
 import {motion} from 'framer-motion'
 import { FacebookIcon, GoogleIcon } from "../../assets/icons/Icons"
+import { useGoogleOneTapLogin, useGoogleLogin} from '@react-oauth/google'
+import axios from 'axios'
+import {jwtDecode} from 'jwt-decode'
+import { useState } from 'react'
+import useProfileContext from '../../hooks/useProfileContext'
 
 const textStyle = {
     marginLeft: '20px',
     fontSize: '15px',
 }
 
+
 const LoginWithGoogle = () => {
+
+    const {setDataProfile} = useProfileContext()
+
     const contentStyle = {
         display: 'flex',
         color: 'white',
@@ -18,28 +27,64 @@ const LoginWithGoogle = () => {
         paddingLeft: '35px',
         marginBottom: '15px',
         cursor: 'pointer',
+        textDecoration: 'none'
     }
 
-    return (
-        <>
-            <div>
-                <motion.div 
-                    style={contentStyle}
-                    whileTap={{backgroundColor:'#ffffff15', transition: {duration: 0.1} }}
-                    whileHover={{border: '1px solid rgba(255, 255, 255)', transition:{duration: 0.1}}}
-                >
-                    <GoogleIcon/> <h4 style={textStyle}>Entrar com Google</h4>
-                </motion.div>
+    const login = useGoogleLogin({
+        onSuccess: async (tokenResponse) => {
+            try {
+                const res = await axios.get(
+                    "https://www.googleapis.com/oauth2/v3/userinfo",
+                    {
+                        headers: {
+                            Authorization: `Bearer ${tokenResponse.access_token}`,
+                        },
+                    }
+                )
+                
+                setDataProfile(res.data)
+               
+                console.log(res)
+            }catch (err) {
+                console.log(err)
+            }  
+        }})
 
-                <motion.div 
+        
+        useGoogleOneTapLogin({
+            onSuccess: credentialResponse => {
+                console.log(jwtDecode(credentialResponse.credential));
+            },
+            onError: () => {
+                console.log('Login Failed');
+            },
+        });
+
+
+    return (
+      
+            <div>
+      
+                    <motion.div 
+                        style={contentStyle}
+                        whileTap={{backgroundColor:'#ffffff15', transition: {duration: 0.1} }}
+                        whileHover={{border: '1px solid rgba(255, 255, 255)', transition:{duration: 0.1}}}
+                        onClick={() => login()}
+                    >
+                        <GoogleIcon/> <h4 style={textStyle}>Entrar com Google</h4>
+
+                    </motion.div>
+
+                    <motion.div 
                     style={contentStyle}
                     whileTap={{backgroundColor:'#ffffff15', transition: {duration: 0.1} }}
                     whileHover={{border: '1px solid rgba(255, 255, 255)', transition:{duration: 0.1}}}
-                >
-                    <FacebookIcon/> <h4 style={textStyle}>Entrar com Facebook</h4>
-                </motion.div>
+                    >
+                        <FacebookIcon/> <h4 style={textStyle}>Entrar com Facebook</h4>
+                    </motion.div>
+
             </div>
-        </>
+       
     )
 }
 
