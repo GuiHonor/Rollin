@@ -29,7 +29,7 @@ app.post("/", async (req, res) => {
     }
 })
 
-app.get("/", async (req, res) => {
+app.get("/data", async (req, res) => {
     res.send(await userStruture.find())
 })
 
