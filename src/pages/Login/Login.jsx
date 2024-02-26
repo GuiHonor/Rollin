@@ -9,11 +9,12 @@ import HeaderLogin from '../../components/header-login/HeaderLogin'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import NewAccount from '../../components/new-account/NewAccount'
-import useProfileContext from '../../hooks/useProfileContext'
+import { setLoggedUser } from '../../services/auth.service'
+import axios from 'axios'
 const _ = require ('lodash')
 
 const Login = () => {
-    const {dataProfile} = useProfileContext()
+   
     const { register, handleSubmit, reset } = useForm()
     const [createAccount, setCreateAccount] = useState(false)
 
@@ -35,17 +36,19 @@ const Login = () => {
    }
 
     const handleLogin = (data) => {
+        setLoggedUser(data)
         enterProfile(data)
         reset()
     }
 
     const newAccount = (data) => {
-        setAccounts([data, ...accounts])
-        window.location.pathname = '/profile'
+        setLoggedUser(data)
+        axios.post("http://15.229.10.31:5000/contato", data)
+        
         reset()
     }
 
-    console.log(dataProfile)
+    
 
     return (
         <>

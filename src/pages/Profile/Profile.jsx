@@ -11,8 +11,12 @@ import Chat from "../../components/chat/Chat";
 import FeedSpace from "../../components/feed-space/FeedSpace";
 import HorizontalBar from "../../components/horizontal-bar/HorizontalBar"
 import VerticalBar from "../../components/vertical-bar/VerticalBar";
+import { getLoggedUser } from "../../services/auth.service";
+import useProfileContext from "../../hooks/useProfileContext";
+import { useEffect } from "react";
 
 function Profile() {
+    const {setDataProfile} = useProfileContext()
 
     const HorizontalMenu = [
         {
@@ -47,13 +51,16 @@ function Profile() {
     
         }
     ]
-  
+
+    useEffect(() => {
+        setDataProfile(getLoggedUser())
+    },[])
+    
     return (
         <>
             <GlobalStyle/>
                 
-                    <HorizontalBar
-                        src={gui}                        
+                    <HorizontalBar                      
                         homeicon={<Homeicon width={45} height= {45}/>}
                         HorizontalMenu={HorizontalMenu}
                     />

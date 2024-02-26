@@ -3,18 +3,14 @@ import { FacebookIcon, GoogleIcon } from "../../assets/icons/Icons"
 import { useGoogleOneTapLogin, useGoogleLogin} from '@react-oauth/google'
 import axios from 'axios'
 import {jwtDecode} from 'jwt-decode'
-import { useState } from 'react'
-import useProfileContext from '../../hooks/useProfileContext'
+import { setLoggedUser } from '../../services/auth.service'
 
 const textStyle = {
     marginLeft: '20px',
     fontSize: '15px',
 }
 
-
 const LoginWithGoogle = () => {
-
-    const {setDataProfile} = useProfileContext()
 
     const contentStyle = {
         display: 'flex',
@@ -42,9 +38,9 @@ const LoginWithGoogle = () => {
                     }
                 )
                 
-                setDataProfile(res.data)
-               
-                console.log(res)
+                setLoggedUser(res.data)
+                window.location.pathname = '/profile'
+
             }catch (err) {
                 console.log(err)
             }  

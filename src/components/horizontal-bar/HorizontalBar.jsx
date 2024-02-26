@@ -1,17 +1,22 @@
 import "./HorizontalStyle.css"
 import {motion} from "framer-motion"
+import useProfileContext from "../../hooks/useProfileContext"
+import gui from "../../assets/img/gui.png"
 
 const HorizontalBar = ({href,homeicon,src, HorizontalMenu}) => {
 
+    const {dataProfile} = useProfileContext()
+    
+    
     return (
         
         <motion.div className="divMain">
 
             <motion.img 
-                whileHover={{backgroundColor: '#fafafaac'}} 
+                
                 className="img" 
                 alt="Perfil" 
-                src={src}
+                src={'teste'}
             />
 
            
