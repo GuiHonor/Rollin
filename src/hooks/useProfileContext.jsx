@@ -1,15 +1,14 @@
-import { useContext } from "react"
-import { ProfileContext } from "../contexts/ProfileContext"
+import { useContext } from 'react';
+import { ProfileContext } from '../contexts/ProfileContext';
 
 const useProfileContext = () => {
+    const context = useContext(ProfileContext);
 
-    const context = useContext(ProfileContext)
-
-    if(context === undefined) {
-        throw new Error('Não está dentro do contexto')
+    if (context === undefined) {
+        throw new Error('Não está dentro do contexto');
     }
 
-    return context
-}
+    return context;
+};
 
-export default useProfileContext
+export default useProfileContext;
