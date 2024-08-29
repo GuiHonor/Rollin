@@ -18,8 +18,8 @@ const Login = () => {
 
     const [accounts, setAccounts] = useState([
         {
-            email: "www.gui.pg@gmail.com",
-            password: "ghsh1997",
+            email: "teste2@gmail.com",
+            password: "teste",
             name: "Guilherme",
             lastName: "Honorio",
         },
