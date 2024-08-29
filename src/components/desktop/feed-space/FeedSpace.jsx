@@ -28,14 +28,14 @@ const FeedSpace = () => {
         {
             name: 'Ana Maria',
             photoPerfil: veia,
-            description: 'Puta rolê looouco, meeeu!!!',
+            description: 'testeteste',
             photoPost: testeleao,
         },
         {
             name: 'Luara dos Santos',
             photoPerfil: bilu,
             description:
-                'Puta rolê loooucoPuta rolê loooucoPuta rolê loooucoPuta rolê loooucoPuta rolê loooucoPuta rolê loooucoPuta rolê loooucoPuta rolê loooucoPuta rolê loooucoPuta rolê loooucoPuta rolê looouco, meeeu!!!Puta rolê looouco, meeeu!!!Puta rolê looouco, meeeu!!!Puta rolê looouco, meeeu!!!Puta rolê looouco, meeeu!!!Puta rolê looouco, meeeu!!!Puta rolê looouco, meeeu!!!Puta rolê looouco, meeeu!!!Puta rolê looouco, meeeu!!!Puta rolê looouco, meeeu!!!Puta rolê looouco, meeeu!!!Puta rolê looouco, meeeu!!!Puta rolê looouco, meeeu!!!',
+                'teste',
             photoPost: teste,
         },
     ];
